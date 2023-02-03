@@ -1,4 +1,4 @@
-let num = 266219;
+const num = 266219;
 let numStr = new String(num).split("");
 let score = 1;
 for (let i = 0; i < numStr.length; i++) {

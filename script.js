@@ -1,9 +1,30 @@
-const num = 266219;
-const numStr = new String(num).split("");
-let score = 1;
-for (let i = 0; i < numStr.length; i++) {
-  console.log((score = score * Number(numStr[i])));
-}
-const degree = score ** 3;
-console.log(degree);
-console.log(Number(degree.toString().slice(0,2)))
+const body = document.querySelector('body');
+
+const week = [
+  "Понедельник",
+  "Вторник",
+  "Среда",
+  "Четверг",
+  "Пятница",
+  "Суббота",
+  "Воскресенье",
+];
+
+let weekend= week.findIndex(function (item) {
+  if (item === "Суббота" || item === "Воскресенье")
+   return item;
+});
+
+const arr = week.splice(0, weekend).join("<br>");
+const arr2 = week.join("<br>");
+
+body.insertAdjacentHTML(
+  "beforeend",
+
+  `<p>${arr}<br>
+  <i>${arr2}</i>
+  </p>
+
+  `
+);
+  

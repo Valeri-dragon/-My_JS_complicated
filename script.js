@@ -1,30 +1,22 @@
-const body = document.querySelector('body');
+insert_days();
 
-const week = [
-  "Понедельник",
-  "Вторник",
-  "Среда",
-  "Четверг",
-  "Пятница",
-  "Суббота",
-  "Воскресенье",
-];
+function insert_days() {
+  let lines = document.querySelectorAll(".day-of-week");
 
-let weekend= week.findIndex(function (item) {
-  if (item === "Суббота" || item === "Воскресенье")
-   return item;
-});
-
-const arr = week.splice(0, weekend).join("<br>");
-const arr2 = week.join("<br>");
-
-body.insertAdjacentHTML(
-  "beforeend",
-
-  `<p>${arr}<br>
-  <i>${arr2}</i>
-  </p>
-
-  `
-);
-  
+  let today_index = (6 + new Date().getDay()) % 7;
+  lines[today_index].classList.add("bold");
+ 
+  let days = [
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+    "Воскресенье",
+  ];
+  days.forEach((day, i) => {
+    if (i == 5 || i == 6) lines[i].classList.add("italic");
+    lines[i].textContent = days[i];
+  });
+}
